@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio Profesional Dede Saepulloh - Android Engineer dengan pengalaman 4+ tahun dalam pengembangan aplikasi skala besar.">
+    <meta name="author" content="Dede Saepulloh">
+    <title>Dede Saepulloh | Android Engineer Portfolio</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+    <style>
+        :root {
+            --bg-body: #0a0c10;
+            --bg-surface: #12151c;
+            --bg-card: #1a1e26;
+            --bg-card-hover: #222832;
+            
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            
+            --accent-primary: #38bdf8;
+            --accent-secondary: #818cf8;
+            --accent-gradient: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(56, 189, 248, 0.3);
+            
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+            
+            --container-max: 1100px;
+            --section-padding: 80px;
+            --gap-responsive: 2rem;
+            
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-secondary);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--text-primary);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--radius);
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        section {
+            padding: var(--section-padding) 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .hero-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            padding: 40px 0;
+            min-height: calc(100vh - 80px);
+            justify-content: center;
+        }
+
+        .hero-content {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-img-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .profile-blob {
+            width: 280px;
+            height: 280px;
+            background: var(--accent-gradient);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            overflow: hidden;
+            border: 4px solid var(--border);
+            box-shadow: var(--shadow-lg);
+            animation: morph 8s ease-in-out infinite;
+        }
+
+        @keyframes morph {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid var(--border);
+            background: var(--bg-surface);
+            color: var(--text-primary);
+        }
+
+        .btn:hover {
+            border-color: var(--accent-primary);
+            background: var(--bg-card);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -10px var(--accent-primary);
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            border: none;
+            color: #fff;
+        }
+
+        .btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--bg-surface);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-5px);
+            background: var(--bg-card);
+        }
+
+        .skill-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-group {
+            margin-bottom: 1.25rem;
+        }
+        
+        .skill-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .tag {
+            background: var(--bg-body);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-family: var(--font-mono);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 3rem;
+            border-left: 2px solid var(--border);
+            padding-left: 30px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -9px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--bg-body);
+            border: 3px solid var(--accent-primary);
+            z-index: 1;
+        }
+
+        .exp-header {
+            margin-bottom: 1rem;
+        }
+
+        .exp-role {
+            font-size: 1.3rem;
+            color: var(--text-primary);
+        }
+
+        .exp-company {
+            color: var(--accent-secondary);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .exp-date {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: block;
+        }
+
+        .exp-list {
+            margin-top: 1rem;
+        }
+
+        .exp-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .exp-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-surface);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-primary);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
+        }
+
+        .project-img-wrapper {
+            position: relative;
+            height: 220px;
+            background: #1e293b;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .app-preview-placeholder {
+            width: 100%;
+            height: 100%;
+            background-color: #222832;
+            background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2364748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>');
+            background-repeat: no-repeat;
+            background-size: 48px;
+            background-position: center;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .app-preview-placeholder {
+            transform: scale(1.05);
+        }
+
+        .badge-production {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-description {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .project-meta {
+            margin-bottom: 1.5rem;
+        }
+
+        .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .play-store-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 0.8rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .play-store-btn:hover {
+            background: #000;
+            border-color: #fff;
+        }
+
+        .edu-card {
+            background: var(--bg-surface);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        footer {
+            padding: 4rem 0;
+            text-align: center;
+            background: #050608;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 768px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-content {
+                text-align: left;
+            }
+
+            .hero-wrapper {
+                flex-direction: row;
+                text-align: left;
+            }
+
+            .hero-img-container {
+                justify-content: flex-end;
+            }
+
+            .hero-description {
+                margin: 0 0 2.5rem 0;
+            }
+
+            .contact-links {
+                justify-content: flex-start;
+            }
+
+            .edu-card {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .profile-blob {
+                width: 380px;
+                height: 380px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .profile-blob { animation: none; }
+            html { scroll-behavior: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="section">
+        <div class="container">
+            <div class="hero-wrapper">
+                <div class="hero-content">
+                    <span class="hero-subtitle">Android Engineer Portfolio</span>
+                    <h1 class="hero-title">Dede <span class="text-gradient">Saepulloh</span></h1>
+                    <p class="hero-description">
+                        Results-driven Android Engineer with over 4 years of experience in developing, maintaining, and scaling large-scale applications. Proven ability to enhance application stability, achieving a 99% crash-free rate. Proficient in modern architecture (Jetpack Compose, MVVM) and experienced in team oversight (Android/iOS), managing external partner integrations, and driving significant feature delivery milestones (MVP).
+                    </p>
+                    <div class="contact-links">
+                        <a href="mailto:dedesaepulloh@outlook.com" class="btn btn-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <span>Email</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/dedesaepulloh/" target="_blank" class="btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/dedesaepulloh" target="_blank" class="btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-img-container">
+                    <div class="profile-blob">
+                        <img src="https://ui-avatars.com/api/?name=Dede+Saepulloh&background=12151c&color=38bdf8&size=512" alt="Dede Saepulloh" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-grid">
+                
+                <div class="skill-card">
+                    <h3>Core Engineering</h3>
+                    <div class="skill-group">
+                        <span class="skill-label">Languages & Frameworks</span>
+                        <div class="skill-tags">
+                            <span class="tag">Kotlin</span>
+                            <span class="tag">Jetpack Compose</span>
+                            <span class="tag">Flutter</span>
+                            <span class="tag">KMM</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <span class="skill-label">Architecture & Libraries</span>
+                        <div class="skill-tags">
+                            <span class="tag">MVVM</span>
+                            <span class="tag">Coroutines</span>
+                            <span class="tag">RxJava</span>
+                            <span class="tag">Dagger Hilt</span>
+                            <span class="tag">Koin</span>
+                            <span class="tag">Retrofit</span>
+                            <span class="tag">Room</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Quality & Security</h3>
+                    <div class="skill-group">
+                        <span class="skill-label">Security & Quality</span>
+                        <div class="skill-tags">
+                            <span class="tag">DexGuard</span>
+                            <span class="tag">ProGuard</span>
+                            <span class="tag">SonarQube</span>
+                            <span class="tag">Lint</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <span class="skill-label">Build & Operations</span>
+                        <div class="skill-tags">
+                            <span class="tag">Gradle</span>
+                            <span class="tag">Play Store Console</span>
+                            <span class="tag">Firebase Crashlytics</span>
+                            <span class="tag">CI/CD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Growth & Workflow</h3>
+                    <div class="skill-group">
+                        <span class="skill-label">Analytics & Cloud</span>
+                        <div class="skill-tags">
+                            <span class="tag">Google Analytics</span>
+                            <span class="tag">AppsFlyer</span>
+                            <span class="tag">Mixpanel</span>
+                            <span class="tag">MoEngage</span>
+                            <span class="tag">Firebase FCM</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <span class="skill-label">Workflow</span>
+                        <div class="skill-tags">
+                            <span class="tag">Git</span>
+                            <span class="tag">Jira</span>
+                            <span class="tag">Confluence</span>
+                            <span class="tag">Agile</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                
+                <article class="timeline-item">
+                    <div class="exp-header">
+                        <span class="exp-company">Tribun Network - KG Media</span>
+                        <h3 class="exp-role">Android Engineer</h3>
+                        <span class="exp-date">September 2024 — Present</span>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Developed, maintained, and continuously improved the TribunX application using Kotlin, Jetpack Compose, and MVVM.</li>
+                        <li>Managed technical quality and workflow for the Android team and provided direct management oversight to the iOS team regarding task assignment and progress tracking.</li>
+                        <li>Successfully led the delivery of several key features and product milestones (MVP-level launches), driving projects from planning to deployment.</li>
+                        <li>Significantly improved application stability, raising the crash-free rate from 97% to 99% by leveraging Firebase Crashlytics and structured bug fixing.</li>
+                        <li>Drove feature development decisions by implementing and utilizing multi-analytics platforms (GA, AppsFlyer, Mixpanel) to track user behavior and feature adoption.</li>
+                        <li>Served as the primary technical liaison with external partners, conducting thorough code reviews to ensure quality and seamless integration.</li>
+                        <li>Managed the application release process on both the Play Store (Android) and App Store Connect (iOS).</li>
+                    </ul>
+                </article>
+
+                <article class="timeline-item">
+                    <div class="exp-header">
+                        <span class="exp-company">BPJS Ketenagakerjaan</span>
+                        <h3 class="exp-role">Android Engineer</h3>
+                        <span class="exp-date">August 2022 — September 2024</span>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Developed, maintained, and performed bug fixing on core Android applications using Kotlin, including integration of third-party services via RESTful APIs.</li>
+                        <li>Implemented DexGuard for security against reverse engineering and tampering.</li>
+                        <li>Integrated Biometric SDKs for enhanced authentication and implemented data encryption techniques.</li>
+                        <li>Maintained high code standards through consistent peer code reviews and utilized SonarQube for systematic code analysis.</li>
+                    </ul>
+                </article>
+
+                <article class="timeline-item">
+                    <div class="exp-header">
+                        <span class="exp-company">Fundtastic</span>
+                        <h3 class="exp-role">Android Engineer</h3>
+                        <span class="exp-date">August 2021 — July 2022</span>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Developed, maintained, and performed necessary bug fixing on Android features, including the integration of native components with Flutter using a platform channel.</li>
+                        <li>Contributed to the Minimum Viable Product (MVP) of the application, ensuring key features were delivered on schedule.</li>
+                        <li>Implemented event tracking and analytics using AppsFlyer and MoEngage for data-driven decision-making.</li>
+                    </ul>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Project Portfolio</h2>
+            <div class="projects-grid">
+
+                <article class="project-card">
+                    <div class="project-img-wrapper">
+                        <span class="badge-production">Live</span>
+                        <div class="app-preview-placeholder"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">TribunX - Breaking News</h3>
+                        <p class="project-description">A platform that serves a wide range of needs — from national news, health, travel, entertainment, to events. Discover and share local experiences through stories from across Indonesia.</p>
+                        <div class="project-meta">
+                            <span class="meta-label">Technologies</span>
+                            <div class="skill-tags">
+                                <span class="tag">Android</span>
+                                <span class="tag">Kotlin</span>
+                                <span class="tag">Jetpack Compose</span>
+                                <span class="tag">Retrofit</span>
+                                <span class="tag">Coroutines</span>
+                                <span class="tag">Dagger Hilt</span>
+                                <span class="tag">MVVM</span>
+                                <span class="tag">Firebase</span>
+                                <span class="tag">Room Database</span>
+                            </div>
+                        </div>
+                        <a href="https://play.google.com/store/apps/details?id=mobile.android.tribun" target="_blank" class="play-store-btn">
+                            Get it on Play Store
+                        </a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-img-wrapper">
+                        <span class="badge-production">Live</span>
+                        <div class="app-preview-placeholder"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">JMO (Jamsostek Mobile)</h3>
+                        <p class="project-description">The latest digital service innovation from BPJS Ketenagakerjaan. JMO enables seamless access to BPJAMSOSTEK digital services without the need to visit a branch office, helping users avoid traffic congestion, weather inconveniences, and long queues.</p>
+                        <div class="project-meta">
+                            <span class="meta-label">Technologies</span>
+                            <div class="skill-tags">
+                                <span class="tag">Android</span>
+                                <span class="tag">Kotlin</span>
+                                <span class="tag">XML</span>
+                                <span class="tag">Retrofit</span>
+                                <span class="tag">Koin</span>
+                                <span class="tag">Coroutines</span>
+                                <span class="tag">MVVM</span>
+                                <span class="tag">Firebase</span>
+                                <span class="tag">Dexguard</span>
+                            </div>
+                        </div>
+                        <a href="https://play.google.com/store/apps/details?id=com.bpjstku" target="_blank" class="play-store-btn">
+                            Get it on Play Store
+                        </a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-img-wrapper">
+                        <span class="badge-production">Live</span>
+                        <div class="app-preview-placeholder"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">FUNDtastic - Wealth Platform</h3>
+                        <p class="project-description">FUNDtastic is an investment app designed for passive investors to grow their wealth sustainably, securely, and easily. The app offers a range of investment instruments, such as gold and mutual funds, which are carefully curated to help users achieve their financial goals.</p>
+                        <div class="project-meta">
+                            <span class="meta-label">Technologies</span>
+                            <div class="skill-tags">
+                                <span class="tag">Android</span>
+                                <span class="tag">Kotlin</span>
+                                <span class="tag">Flutter</span>
+                                <span class="tag">XML</span>
+                                <span class="tag">Retrofit</span>
+                                <span class="tag">MVVM</span>
+                                <span class="tag">Firebase</span>
+                            </div>
+                        </div>
+                        <a href="https://play.google.com/store/apps/details?id=id.co.fundtastic.client" target="_blank" class="play-store-btn">
+                            Get it on Play Store
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="edu-card">
+                <div>
+                    <h3>STMIK TASIKMALAYA</h3>
+                    <p>Bachelor of Informatics Engineering</p>
+                </div>
+                <div style="text-align: right;">
+                    <span class="text-gradient" style="font-weight: 700; font-size: 1.2rem;">GPA 3.77</span>
+                    <p class="exp-date">2017 - 2021</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <span class="footer-logo text-gradient">DS.</span>
+            <p class="footer-text" style="margin-top: 10px; font-size: 0.8rem;">Dede Saepulloh &copy; 2026. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
